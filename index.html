@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('input[type="submit"]').attr('disabled','disabled');
+      $('input[type="file"]').keypress(function(){
+            console.log($(this).val());
+            if($(this).val() != ''){
+              $('input[type="submit"]').removeAttr('disabled');
+            }
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <form ref='uploadForm' id='uploadForm' action='http://localhost:8000/' method="POST" enctype="multipart/form-data">
+      <input type="file" name="filefield">
+      <input type="file" name="imageVideo">
+      <input type="submit">
+    </form>
+  </body>
+</html>
