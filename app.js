@@ -11,7 +11,7 @@ app.post('/',function(req,res){
     var busboy = new Busboy({ headers: req.headers });
 	busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
       cont +=1;
-	    console.log(mimetype);
+	    console.log(filename);
 	    var fileType = mimetype.split("/");
 	    if(fileType[0] === "video" && cont==1){
           console.log("Entre!!!");
