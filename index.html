@@ -1,22 +1,37 @@
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-      $('input[type="submit"]').attr('disabled','disabled');
-      $('input[type="file"]').keypress(function(){
-            console.log($(this).val());
-            if($(this).val() != ''){
-              $('input[type="submit"]').removeAttr('disabled');
-            }
+      $(document).ready(function(){
+      console.log("Hola prros");
+      flag1 = false;
+      flag2 = false;
+      $('input#Archivo').change(function(){
+      flag1 = true;
+      console.log(flag1);
+      console.log(flag2);
+
+      if (flag1 == true && flag2 == true) {
+      $('input:submit').attr('disabled',false);
+      }
       });
-    });
+      $('input#Imagen').change(function(){
+      flag2 = true;
+      console.log(flag1);
+      console.log(flag2);
+
+      if (flag1 == true && flag2 == true) {
+      $('input:submit').attr('disabled',false);
+      }
+      });
+      });
     </script>
   </head>
   <body>
     <form ref='uploadForm' id='uploadForm' action='http://localhost:8000/' method="POST" enctype="multipart/form-data">
-      <input type="file" name="filefield">
-      <input type="file" name="imageVideo">
-      <input type="submit">
+      <input type="file" name="filefield" id="Archivo">
+      <input type="file" name="imageVideo" id="Imagen">
+      <input type="submit" disabled>
     </form>
   </body>
 </html>
